@@ -60,7 +60,7 @@ export default function App() {
         <CanvaHowIWork />
 
         {/* Professional Background Section */}
-        <CanvaProfessionalBackground />
+        <CanvaProfessionalBackground onOpenContact={handleOpenContact} />
 
         {/* Skills & Expertise Section (Portals, Comm tools, Insurance, EHR) */}
         <CanvaSkillsExpertise />
