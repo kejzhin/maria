@@ -1,5 +1,6 @@
 import React from 'react';
 import { FileCheck, Calendar, Mail, DollarSign, Stethoscope, PhoneCall, Users, Binary } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export const CanvaServices: React.FC = () => {
   const services = [
@@ -14,30 +15,44 @@ export const CanvaServices: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white border-b border-slate-200">
+    <section id="services" className="py-16 sm:py-20 bg-white border-b border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
-        <div className="text-center max-w-2xl mx-auto space-y-2">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-2xl mx-auto space-y-2"
+        >
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Services I Provide
           </h2>
           <p className="text-sm sm:text-base text-slate-600">
             From billing to scheduling, I offer reliable, comprehensive support for clinics and practitioners.
           </p>
-        </div>
+        </motion.div>
 
         {/* 8 Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((s, idx) => {
             const Icon = s.icon;
             return (
-              <div key={idx} className="bg-slate-900 text-white rounded-3xl p-6 flex flex-col items-center text-center space-y-4 shadow-md hover:bg-slate-800 transition-colors">
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="bg-slate-900 text-white rounded-3xl p-6 flex flex-col items-center text-center space-y-4 shadow-md hover:bg-slate-800 transition-colors"
+              >
                 <div className="w-14 h-14 rounded-2xl bg-teal-500/20 text-teal-300 flex items-center justify-center border border-teal-500/30">
                   <Icon className="w-7 h-7" />
                 </div>
                 <h3 className="text-base font-bold text-white">{s.title}</h3>
                 <p className="text-xs text-slate-300 leading-relaxed">{s.desc}</p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

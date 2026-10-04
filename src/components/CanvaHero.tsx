@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck } from 'lucide-react';
+import { motion } from 'motion/react';
 
 interface CanvaHeroProps {
   onOpenServices: () => void;
@@ -8,49 +8,82 @@ interface CanvaHeroProps {
 
 export const CanvaHero: React.FC<CanvaHeroProps> = ({ onOpenServices, onOpenAbout }) => {
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden border-b border-slate-100">
+    <section className="py-12 sm:py-16 md:py-24 bg-white overflow-hidden border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* Left Text Column */}
-          <div className="lg:col-span-7 space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1a365d] tracking-tight leading-[1.15] text-balance">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7 space-y-6 text-center lg:text-left"
+          >
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-2xl sm:text-4xl md:text-5xl font-black text-[#1a365d] tracking-tight leading-[1.2] text-balance"
+            >
               Prior Authorization Specialist <br className="hidden sm:inline" />
               & Virtual Assistance for <br className="hidden sm:inline" />
-              Healthcare Professional
-            </h1>
+              Healthcare Professionals
+            </motion.h1>
 
-            <p className="text-base sm:text-lg text-slate-700 font-normal leading-relaxed max-w-2xl">
-              With over 12 years of experience and HIPAA Certification, I help Healthcare Providers streamline their practice by handling billing and administrative tasks—so you can focus on patient care.
-            </p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="text-sm sm:text-base md:text-lg text-slate-700 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0"
+            >
+              With over 4 years of experience and HIPAA Certification, I help Healthcare Providers streamline their practice by handling prior authorization, customer service and administrative tasks—so you can focus on patient care.
+            </motion.p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <button
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2"
+            >
+              <motion.button
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={onOpenServices}
-                className="px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-[#0e6ba8] bg-white hover:bg-slate-50 border border-[#0e6ba8] rounded-full shadow-sm transition-all hover:-translate-y-0.5"
+                className="px-6 sm:px-7 py-3 sm:py-3.5 text-xs font-bold uppercase tracking-wider text-[#0e6ba8] bg-white hover:bg-slate-50 border-2 border-[#0e6ba8] rounded-full shadow-sm transition-all"
               >
                 View Services
-              </button>
+              </motion.button>
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={onOpenAbout}
-                className="px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-[#0e6ba8] hover:bg-[#0c5d90] rounded-full shadow-md transition-all hover:-translate-y-0.5"
+                className="px-6 sm:px-7 py-3 sm:py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-[#0e6ba8] hover:bg-[#0c5d90] rounded-full shadow-md transition-all"
               >
                 Know More About Me
-              </button>
-            </div>
-          </div>
+              </motion.button>
+            </motion.div>
+          </motion.div>
 
-          {/* Right Image Column (Bigger Circular Frame Style with badge.png Seal on Right, No Cursive Name) */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-md flex items-center justify-center py-6">
+          {/* Right Image Column */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 flex justify-center"
+          >
+            <div className="relative w-full max-w-sm sm:max-w-md flex items-center justify-center py-4">
               
-              {/* Bigger Circular Photo Frame */}
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden shadow-2xl bg-slate-100 border-4 border-white">
+              {/* Circular Photo Frame */}
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl bg-slate-100 border-4 border-white"
+              >
                 <img
                   src="/profile.png"
                   alt="Maria Bernadette Estrada"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                   onError={(e) => {
                     const target = e.currentTarget;
                     if (!target.dataset.tried1) {
@@ -66,7 +99,7 @@ export const CanvaHero: React.FC<CanvaHeroProps> = ({ onOpenServices, onOpenAbou
                         const fallback = document.createElement('div');
                         fallback.className = 'fallback-avatar absolute inset-0 bg-gradient-to-br from-teal-800 to-slate-900 flex flex-col items-center justify-center text-white p-6 text-center rounded-full';
                         fallback.innerHTML = `
-                          <div class="w-20 h-20 rounded-full bg-white/10 border-2 border-white/30 flex items-center justify-center text-2xl font-bold mb-2 shadow-inner">MB</div>
+                          <div class="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-white/10 border-2 border-white/30 flex items-center justify-center text-xl sm:text-2xl font-bold mb-2 shadow-inner">MB</div>
                           <div class="text-sm font-bold">Maria Bernadette</div>
                           <div class="text-[10px] text-teal-200 mt-1">Upload profile.png</div>
                         `;
@@ -75,11 +108,16 @@ export const CanvaHero: React.FC<CanvaHeroProps> = ({ onOpenServices, onOpenAbou
                     }
                   }}
                 />
-              </div>
+              </motion.div>
 
-              {/* HIPAA Badge Image (/badge.png) on RIGHT side, transparent background */}
-              <div className="absolute right-0 sm:-right-8 top-1/2 transform -translate-y-1/2 z-35 pointer-events-none">
-                <div className="w-32 sm:w-38 drop-shadow-xl">
+              {/* HIPAA Badge Image (/badge.png) with subtle float animation */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.6, rotate: -15 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ duration: 0.6, delay: 0.5, type: 'spring', stiffness: 200 }}
+                className="absolute -right-2 sm:-right-4 md:-right-6 top-1/2 transform -translate-y-1/2 z-20 pointer-events-none"
+              >
+                <div className="w-24 sm:w-32 md:w-36 drop-shadow-xl animate-pulse">
                   <img
                     src="/badge.png"
                     alt="HIPAA Compliant"
@@ -90,21 +128,20 @@ export const CanvaHero: React.FC<CanvaHeroProps> = ({ onOpenServices, onOpenAbou
                       const parent = target.parentElement;
                       if (parent && !parent.querySelector('.fallback-seal')) {
                         const fallback = document.createElement('div');
-                        fallback.className = 'fallback-seal w-28 h-28 rounded-full bg-gradient-to-br from-blue-600 to-blue-900 text-white flex flex-col items-center justify-center p-2 text-center shadow-inner pointer-events-auto';
+                        fallback.className = 'fallback-seal w-20 sm:w-28 h-20 sm:h-28 rounded-full bg-gradient-to-br from-blue-600 to-blue-900 text-white flex flex-col items-center justify-center p-2 text-center shadow-inner pointer-events-auto';
                         fallback.innerHTML = `
-                          <span class="text-[11px] font-black tracking-wider leading-tight">HIPAA</span>
-                          <span class="text-[9px] font-medium tracking-tighter text-blue-100">COMPLIANT</span>
-                          <span class="text-[7px] text-blue-200 mt-1">Upload badge.png</span>
+                          <span class="text-[9px] sm:text-[11px] font-black tracking-wider leading-tight">HIPAA</span>
+                          <span class="text-[7px] sm:text-[9px] font-medium tracking-tighter text-blue-100">COMPLIANT</span>
                         `;
                         parent.appendChild(fallback);
                       }
                     }}
                   />
                 </div>
-              </div>
+              </motion.div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

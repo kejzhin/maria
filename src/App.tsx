@@ -6,7 +6,6 @@ import { CanvaHowIWork } from './components/CanvaHowIWork';
 import { CanvaProfessionalBackground } from './components/CanvaProfessionalBackground';
 import { CanvaSkillsExpertise } from './components/CanvaSkillsExpertise';
 import { CanvaServices } from './components/CanvaServices';
-import { CanvaTestimonials } from './components/CanvaTestimonials';
 import { CanvaCTA } from './components/CanvaCTA';
 import { CanvaFooter } from './components/CanvaFooter';
 import { ResumeModal } from './components/ResumeModal';
@@ -67,9 +66,6 @@ export default function App() {
 
         {/* Services I Provide Grid */}
         <CanvaServices />
-
-        {/* Client Testimonials */}
-        <CanvaTestimonials />
 
         {/* Ready to Streamline Your Practice? CTA */}
         <CanvaCTA onOpenContact={handleOpenContact} />

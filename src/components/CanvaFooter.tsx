@@ -74,7 +74,6 @@ export const CanvaFooter: React.FC<CanvaFooterProps> = ({ onOpenResume, onOpenCo
               <button onClick={() => scrollToSection('#home')} className="text-left hover:text-teal-400 transition-colors">Home</button>
               <button onClick={() => scrollToSection('#about')} className="text-left hover:text-teal-400 transition-colors">About</button>
               <button onClick={() => scrollToSection('#services')} className="text-left hover:text-teal-400 transition-colors">Services</button>
-              <button onClick={() => scrollToSection('#testimonials')} className="text-left hover:text-teal-400 transition-colors">Testimonials</button>
               <button onClick={onOpenContact} className="text-left hover:text-teal-400 transition-colors">Contact</button>
             </div>
           </div>
