@@ -25,10 +25,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
   return (
     <header id="home" className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-16 flex items-center justify-between relative">
         
         {/* Logo Mark */}
-        <a href="#home" className="flex items-center relative h-16 w-16 sm:w-20">
+        <a href="#home" className="flex items-center relative h-16 w-16 sm:w-20 z-10">
           <div className="absolute top-1/2 -translate-y-1/2 left-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
             <img
               src="/heartbeat.png"
@@ -54,8 +54,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           </div>
         </a>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+        {/* Desktop Nav Links - Centered */}
+        <nav className="hidden md:flex items-center justify-center gap-8 text-sm font-semibold text-slate-700 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -72,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
         </nav>
 
         {/* Desktop Right Action */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center z-10 ml-auto">
           <button
             onClick={onOpenContact}
             className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#0e6ba8] hover:bg-[#0c5d90] rounded-full shadow-sm hover:shadow transition-all"
@@ -97,7 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       {/* Mobile Drawer Dropdown Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden w-full bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-4 shadow-xl animate-in fade-in slide-in-from-top-2 duration-150">
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2 items-center text-center">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -106,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                   e.preventDefault();
                   handleScroll(link.href);
                 }}
-                className="px-3 py-2 text-base font-semibold text-slate-800 hover:bg-slate-50 hover:text-[#0e6ba8] rounded-lg transition-colors"
+                className="w-full text-center py-2 text-base font-semibold text-slate-800 hover:bg-slate-50 hover:text-[#0e6ba8] rounded-lg transition-colors"
               >
                 {link.name}
               </a>

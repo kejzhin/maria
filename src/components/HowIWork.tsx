@@ -36,17 +36,17 @@ export const HowIWork: React.FC = () => {
 
   return (
     <section className="py-14 sm:py-20 bg-[#142d4c] text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10">
           
-          {/* Left Title & Subtitle */}
+          {/* Left Title & Subtitle - positioned closely to the first card */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-4 space-y-2 text-center lg:text-left"
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="flex-shrink-0 text-center lg:text-left space-y-1.5 max-w-xs"
           >
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               How I Work
@@ -57,7 +57,7 @@ export const HowIWork: React.FC = () => {
           </motion.div>
 
           {/* Right 4 Quality Icons & Labels */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 flex-1 max-w-3xl">
             {qualities.map((item, idx) => (
               <motion.div
                 key={idx}
