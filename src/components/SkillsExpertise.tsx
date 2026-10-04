@@ -8,7 +8,7 @@ import {
 import { Globe, MessageSquare, Database, Shield } from 'lucide-react';
 import { motion } from 'motion/react';
 
-export const CanvaSkillsExpertise: React.FC = () => {
+export const SkillsExpertise: React.FC = () => {
   const categories = [
     {
       title: "Health Insurance Portals",

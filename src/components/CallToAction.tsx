@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
-interface CanvaCTAProps {
+interface CallToActionProps {
   onOpenContact: () => void;
 }
 
-export const CanvaCTA: React.FC<CanvaCTAProps> = ({ onOpenContact }) => {
+export const CallToAction: React.FC<CallToActionProps> = ({ onOpenContact }) => {
   return (
     <section className="py-20 sm:py-24 bg-slate-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-teal-950/40 via-slate-900 to-slate-950" />
@@ -22,7 +22,7 @@ export const CanvaCTA: React.FC<CanvaCTAProps> = ({ onOpenContact }) => {
         </h2>
 
         <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
-          Let's talk about how I can support your billing and admin needs.
+          Let's talk about how I can support your billing, prior authorization, and practice administrative needs.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-4">

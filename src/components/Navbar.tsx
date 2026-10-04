@@ -1,35 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, FileText, PhoneCall, Mail, CheckCircle2 } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/portfolioData';
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
-  onOpenResume: () => void;
   onOpenContact: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, onOpenContact }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
+export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navLinks = [
+    { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Specializations', href: '#specializations' },
-    { name: 'Tools & Portals', href: '#tools-and-portals' },
-    { name: 'Workflow', href: '#prior-auth-workflow' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Coding & Codes', href: '#medical-coding' },
+    { name: 'Services', href: '#services' },
     { name: 'Contact', href: '#contact' },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleScroll = (href: string) => {
     setMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
@@ -38,87 +24,79 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, onOpenContact }) =
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3'
-          : 'bg-white/80 backdrop-blur-sm border-b border-slate-200/60 py-4'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Zone 1: Single text element Brand mark */}
-          <a
-            href="#"
-            className="group flex flex-col focus:outline-none"
-            title={PERSONAL_INFO.fullName}
+    <header id="home" className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-16 flex items-center justify-between">
+        
+        {/* Logo Mark */}
+        <a href="#home" className="flex items-center relative h-16 w-16 sm:w-20">
+          <div className="absolute top-1/2 -translate-y-1/2 left-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+            <img
+              src="/heartbeat.png"
+              alt="Logo"
+              className="w-full h-full object-contain filter drop-shadow-sm"
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent && !parent.querySelector('.fallback-logo')) {
+                  const fallback = document.createElement('div');
+                  fallback.className = 'fallback-logo w-12 h-12 rounded-full bg-[#1a365d] text-white flex items-center justify-center shadow-md';
+                  fallback.innerHTML = `
+                    <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                      <path d="M3.5 12h4l1.5-3 2.5 6 2-4 1.5 2h5.5" stroke="white" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  `;
+                  parent.appendChild(fallback);
+                }
+              }}
+            />
+          </div>
+        </a>
+
+        {/* Desktop Nav Links */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                handleScroll(link.href);
+              }}
+              className="hover:text-[#0e6ba8] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#0e6ba8] after:scale-x-0 hover:after:scale-x-100 after:transition-transform"
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+
+        {/* Desktop Right Action */}
+        <div className="hidden md:flex items-center">
+          <button
+            onClick={onOpenContact}
+            className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#0e6ba8] hover:bg-[#0c5d90] rounded-full shadow-sm hover:shadow transition-all"
           >
-            <span className="text-base sm:text-lg font-bold text-slate-900 tracking-tight group-hover:text-teal-700 transition-colors">
-              Maria Bernadette Estrada
-            </span>
-            <span className="text-xs text-teal-700 font-medium tracking-wide">
-              Healthcare Virtual Assistant · ENT & Allergy
-            </span>
-          </a>
-
-          {/* Zone 2: Clean text navigation links */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-slate-600">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                className="hover:text-teal-700 transition-colors py-1 relative text-slate-700 hover:font-semibold"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-
-          {/* Zone 3: Primary Actions */}
-          <div className="hidden sm:flex items-center gap-3">
-            <button
-              onClick={onOpenResume}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors border border-slate-200"
-            >
-              <FileText className="w-3.5 h-3.5 text-slate-600" />
-              <span>Resume PDF</span>
-            </button>
-            <button
-              onClick={onOpenContact}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-teal-700 hover:bg-teal-800 rounded-lg shadow-sm transition-all hover:shadow hover:-translate-y-0.5"
-            >
-              <PhoneCall className="w-3.5 h-3.5" />
-              <span>Hire / Schedule Call</span>
-            </button>
-          </div>
-
-          {/* Mobile Menu Toggle Button */}
-          <div className="flex sm:hidden items-center gap-2">
-            <button
-              onClick={onOpenContact}
-              className="p-2 text-teal-700 bg-teal-50 rounded-lg hover:bg-teal-100 transition-colors"
-              aria-label="Contact"
-            >
-              <Mail className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-700 rounded-lg hover:bg-slate-100 focus:outline-none"
-              aria-label="Toggle Navigation Menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+            LET'S WORK TOGETHER
+          </button>
         </div>
+
+        {/* Mobile Hamburger Button */}
+        <div className="flex md:hidden items-center">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-slate-700 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition-colors"
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Drawer Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 shadow-xl px-4 pt-3 pb-6 space-y-3 transition-all">
+        <div className="md:hidden w-full bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-4 shadow-xl animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <a
@@ -126,34 +104,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, onOpenContact }) =
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleNavClick(link.href);
+                  handleScroll(link.href);
                 }}
-                className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-teal-700 hover:bg-teal-50/60 rounded-md transition-colors"
+                className="px-3 py-2 text-base font-semibold text-slate-800 hover:bg-slate-50 hover:text-[#0e6ba8] rounded-lg transition-colors"
               >
                 {link.name}
               </a>
             ))}
           </div>
-          <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenResume();
-              }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors"
-            >
-              <FileText className="w-4 h-4" />
-              <span>View & Download Resume</span>
-            </button>
+          <div className="pt-2 border-t border-slate-100">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenContact();
               }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-white bg-teal-700 rounded-lg hover:bg-teal-800 transition-colors"
+              className="w-full py-3 text-xs font-bold uppercase tracking-wider text-white bg-[#0e6ba8] hover:bg-[#0c5d90] rounded-full shadow text-center"
             >
-              <PhoneCall className="w-4 h-4" />
-              <span>Schedule Discovery Interview</span>
+              LET'S WORK TOGETHER
             </button>
           </div>
         </div>

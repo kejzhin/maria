@@ -1,17 +1,19 @@
-import React from 'react';
-import { ShieldCheck, FileText } from 'lucide-react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { ShieldCheck, FileText, ZoomIn, X, Award } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
-interface CanvaAboutProps {
+interface AboutProps {
   onOpenResume: () => void;
 }
 
-export const CanvaAbout: React.FC<CanvaAboutProps> = ({ onOpenResume }) => {
+export const About: React.FC<AboutProps> = ({ onOpenResume }) => {
+  const [certModalOpen, setCertModalOpen] = useState(false);
+
   return (
     <section id="about" className="py-12 sm:py-16 md:py-20 bg-white border-b border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Soft pastel blue container card matching the reference image layout */}
+        {/* Soft pastel blue container card */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +56,6 @@ export const CanvaAbout: React.FC<CanvaAboutProps> = ({ onOpenResume }) => {
                           fallback.innerHTML = `
                             <div class="w-16 h-16 rounded-full bg-white/10 border-2 border-white/30 flex items-center justify-center text-xl font-bold mb-2 shadow-inner">MB</div>
                             <div class="text-sm font-bold">Maria Bernadette</div>
-                            <div class="text-[10px] text-teal-200 mt-1">Upload profile.png</div>
                           `;
                           parent.appendChild(fallback);
                         }
@@ -79,13 +80,6 @@ export const CanvaAbout: React.FC<CanvaAboutProps> = ({ onOpenResume }) => {
                       onError={(e) => {
                         const target = e.currentTarget;
                         target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent && !parent.querySelector('.fallback-seal-about')) {
-                          const fallback = document.createElement('div');
-                          fallback.className = 'fallback-seal-about w-20 sm:w-24 h-20 sm:h-24 rounded-full bg-blue-900 text-white flex flex-col items-center justify-center text-[10px] font-bold text-center shadow-lg pointer-events-auto';
-                          fallback.innerText = 'HIPAA Badge';
-                          parent.appendChild(fallback);
-                        }
                       }}
                     />
                   </div>
@@ -116,28 +110,51 @@ export const CanvaAbout: React.FC<CanvaAboutProps> = ({ onOpenResume }) => {
 
               {/* Certification Section */}
               <div className="space-y-3 pt-2 text-left">
-                <div className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#1a365d]">
-                  CERTIFICATION
+                <div className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#1a365d] flex items-center justify-between">
+                  <span>OFFICIAL CERTIFICATION</span>
+                  <span className="text-[11px] font-medium text-slate-600 lowercase tracking-normal">click to enlarge</span>
                 </div>
                 
-                {/* Certificate Preview Card */}
+                {/* Real Certificate Preview Card */}
                 <motion.div 
                   whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.2 }}
-                  className="bg-white rounded-2xl p-4 sm:p-5 shadow-xl border border-white flex flex-col sm:flex-row items-center gap-4 sm:gap-5 relative overflow-hidden group hover:shadow-2xl transition-all"
+                  onClick={() => setCertModalOpen(true)}
+                  className="bg-white rounded-2xl p-4 sm:p-5 shadow-xl border border-white flex flex-col sm:flex-row items-center gap-4 sm:gap-5 relative overflow-hidden group hover:shadow-2xl transition-all cursor-pointer"
+                  title="Click to view full certificate"
                 >
-                  <div className="w-full sm:w-32 h-16 sm:h-24 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl flex items-center justify-center p-2 sm:p-3 border border-blue-100 flex-shrink-0 shadow-inner">
-                    <div className="text-center">
-                      <div className="text-xs sm:text-sm font-bold text-blue-900 uppercase">PENN</div>
-                      <div className="text-[9px] text-slate-600">Privacy & HIPAA</div>
+                  {/* Real Certificate Image Thumbnail */}
+                  <div className="w-full sm:w-36 h-24 bg-slate-100 rounded-xl overflow-hidden border border-slate-200 flex-shrink-0 relative shadow-sm">
+                    <img
+                      src="/certificate.jpg"
+                      alt="HIPAA Awareness Certificate of Completion - Maria Bernadette Santos Angeles"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/40 transition-colors flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-full bg-white/90 text-slate-800 flex items-center justify-center shadow">
+                        <ZoomIn className="w-4 h-4 text-[#0e6ba8]" />
+                      </div>
                     </div>
                   </div>
                   
                   <div className="flex-1 min-w-0 text-center sm:text-left">
-                    <div className="text-sm sm:text-base font-bold text-slate-900 truncate">Privacy Law and HIPAA</div>
-                    <div className="text-xs text-slate-600">University of Pennsylvania / Coursera</div>
-                    <div className="text-xs text-teal-700 font-semibold mt-1 flex items-center justify-center sm:justify-start gap-1.5">
-                      <ShieldCheck className="w-4 h-4" /> Verified Credential
+                    <div className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                      HIPAA Awareness for Healthcare Providers
+                    </div>
+                    <div className="text-xs text-slate-600 mt-0.5">
+                      HIPAATraining.com • Hello Rache
+                    </div>
+                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mt-2">
+                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-teal-800 bg-teal-50 px-2 py-0.5 rounded-md border border-teal-200">
+                        <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+                        1.5 Credit Hours
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-blue-800 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200">
+                        <Award className="w-3.5 h-3.5 text-blue-600" />
+                        Texas HB 300 & CA CMIA
+                      </span>
                     </div>
                   </div>
                 </motion.div>
@@ -162,6 +179,53 @@ export const CanvaAbout: React.FC<CanvaAboutProps> = ({ onOpenResume }) => {
         </motion.div>
 
       </div>
+
+      {/* Real Certificate Full Lightbox Modal */}
+      <AnimatePresence>
+        {certModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="relative bg-white rounded-2xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-slate-50">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-teal-600" />
+                  <span className="text-sm font-bold text-slate-900">
+                    Official Certificate of Completion
+                  </span>
+                </div>
+                <button
+                  onClick={() => setCertModalOpen(false)}
+                  className="p-1.5 text-slate-500 hover:text-slate-900 rounded-lg hover:bg-slate-200 transition-colors"
+                  aria-label="Close Certificate View"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Full Certificate Image */}
+              <div className="overflow-y-auto p-4 sm:p-6 flex flex-col items-center bg-slate-100/60">
+                <div className="rounded-xl overflow-hidden shadow-xl border-4 border-white max-w-3xl w-full bg-white">
+                  <img
+                    src="/certificate.jpg"
+                    alt="HIPAA Awareness for Healthcare Providers - Maria Bernadette Santos Angeles"
+                    className="w-full h-auto object-contain block"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div className="text-center pt-4 text-xs text-slate-600">
+                  Certified: <strong>Maria Bernadette Santos Angeles</strong> (Hello Rache) • Issued April 29, 2022
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

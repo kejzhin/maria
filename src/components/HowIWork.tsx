@@ -2,7 +2,7 @@ import React from 'react';
 import { MessageSquare, Heart, Search, Calendar, Laptop } from 'lucide-react';
 import { motion } from 'motion/react';
 
-export const CanvaHowIWork: React.FC = () => {
+export const HowIWork: React.FC = () => {
   const qualities = [
     {
       title: "Empathy in Patient Communication",

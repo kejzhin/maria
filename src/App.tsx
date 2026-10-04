@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
-import { CanvaNavbar } from './components/CanvaNavbar';
-import { CanvaHero } from './components/CanvaHero';
-import { CanvaAbout } from './components/CanvaAbout';
-import { CanvaHowIWork } from './components/CanvaHowIWork';
-import { CanvaProfessionalBackground } from './components/CanvaProfessionalBackground';
-import { CanvaSkillsExpertise } from './components/CanvaSkillsExpertise';
-import { CanvaServices } from './components/CanvaServices';
-import { CanvaCTA } from './components/CanvaCTA';
-import { CanvaFooter } from './components/CanvaFooter';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { About } from './components/About';
+import { HowIWork } from './components/HowIWork';
+import { ProfessionalBackground } from './components/ProfessionalBackground';
+import { SkillsExpertise } from './components/SkillsExpertise';
+import { Services } from './components/Services';
+import { CallToAction } from './components/CallToAction';
+import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
-import { ContactSection } from './components/ContactSection';
 
 export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
-  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   const handleOpenResume = () => setResumeOpen(true);
   const handleCloseResume = () => setResumeOpen(false);
@@ -41,43 +39,43 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-800 font-sans selection:bg-teal-600 selection:text-white flex flex-col">
-      {/* Exact Canva Navbar */}
-      <CanvaNavbar onOpenContact={handleOpenContact} />
+      {/* Top Header Navigation */}
+      <Navbar onOpenContact={handleOpenContact} />
 
       {/* Main Content */}
       <main className="flex-1">
         {/* Hero Section */}
-        <CanvaHero 
+        <Hero 
           onOpenServices={handleOpenServices} 
           onOpenAbout={handleOpenAbout} 
         />
 
-        {/* About Me Section */}
-        <CanvaAbout onOpenResume={handleOpenResume} />
+        {/* About Me Section with Verified Certificate */}
+        <About onOpenResume={handleOpenResume} />
 
         {/* How I Work Section */}
-        <CanvaHowIWork />
+        <HowIWork />
 
         {/* Professional Background Section */}
-        <CanvaProfessionalBackground onOpenContact={handleOpenContact} />
+        <ProfessionalBackground onOpenContact={handleOpenContact} />
 
-        {/* Skills & Expertise Section (Portals, Comm tools, Insurance, EHR) */}
-        <CanvaSkillsExpertise />
+        {/* Skills & Expertise Section */}
+        <SkillsExpertise />
 
         {/* Services I Provide Grid */}
-        <CanvaServices />
+        <Services />
 
-        {/* Ready to Streamline Your Practice? CTA */}
-        <CanvaCTA onOpenContact={handleOpenContact} />
+        {/* Call to Action */}
+        <CallToAction onOpenContact={handleOpenContact} />
       </main>
 
-      {/* Footer */}
-      <CanvaFooter 
+      {/* Redesigned Footer */}
+      <Footer 
         onOpenResume={handleOpenResume}
         onOpenContact={handleOpenContact}
       />
 
-      {/* Resume Modal */}
+      {/* Resume / CV Modal */}
       <ResumeModal 
         isOpen={resumeOpen}
         onClose={handleCloseResume}

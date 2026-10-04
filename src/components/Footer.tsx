@@ -1,71 +1,177 @@
 import React from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { ShieldCheck, Heart, ArrowUp } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, ShieldCheck, ArrowUpRight, Clock, FileText } from 'lucide-react';
 
-export const Footer: React.FC<{ onOpenResume: () => void }> = ({ onOpenResume }) => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+interface FooterProps {
+  onOpenResume: () => void;
+  onOpenContact: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenResume, onOpenContact }) => {
+  const scrollToSection = (id: string) => {
+    const el = document.querySelector(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <footer id="contact" className="bg-[#0b1728] text-slate-300 border-t border-slate-800/80 pt-16 pb-12 selection:bg-teal-500 selection:text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-slate-800/80">
-          <div className="space-y-1">
-            <div className="text-base font-bold text-white tracking-tight">
-              {PERSONAL_INFO.fullName}
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-start">
+          
+          {/* Brand & Purpose Column */}
+          <div className="md:col-span-5 space-y-5">
+            <div className="space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-teal-400">
+                Healthcare Practice Partner
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug">
+                Your patients deserve your full attention—let me handle the rest.
+              </h3>
             </div>
-            <div className="text-xs text-teal-400 font-medium">
-              Healthcare Virtual Assistant · ENT & Allergy Prior Authorization Specialist
-            </div>
-            <p className="text-[11px] text-slate-500 max-w-md pt-1">
-              Providing HIPAA-compliant clinical administration, EHR mastery, and real-time insurance clearances for U.S. healthcare providers.
+            
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md">
+              Providing precision prior authorization, seamless clinical administrative workflows, and reliable insurance verification for U.S. healthcare providers.
             </p>
+
+            <div className="flex items-center gap-3 pt-1">
+              <a
+                href={PERSONAL_INFO.linkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-slate-900/90 hover:bg-[#0e6ba8] text-slate-300 hover:text-white flex items-center justify-center transition-all border border-slate-800 hover:border-[#0e6ba8] shadow-sm hover:scale-105"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                className="w-10 h-10 rounded-xl bg-slate-900/90 hover:bg-teal-600 text-slate-300 hover:text-white flex items-center justify-center transition-all border border-slate-800 hover:border-teal-500 shadow-sm hover:scale-105"
+                aria-label="Send Email"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+              <a
+                href={`tel:${PERSONAL_INFO.phone.replace(/[^0-9+]/g, '')}`}
+                className="w-10 h-10 rounded-xl bg-slate-900/90 hover:bg-teal-600 text-slate-300 hover:text-white flex items-center justify-center transition-all border border-slate-800 hover:border-teal-500 shadow-sm hover:scale-105"
+                aria-label="Direct Phone"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+            </div>
+
+            {/* Compliance Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-teal-950/60 border border-teal-800/50 text-teal-300 text-xs font-semibold">
+              <ShieldCheck className="w-4 h-4 text-teal-400" />
+              <span>HIPAA Certified • Confidential & Secure</span>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs">
-            <button
-              onClick={onOpenResume}
-              className="text-slate-300 hover:text-teal-400 transition-colors"
-            >
-              Resume PDF
-            </button>
-            <span className="text-slate-700">·</span>
-            <a
-              href={PERSONAL_INFO.linkedIn}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-300 hover:text-teal-400 transition-colors"
-            >
-              LinkedIn
-            </a>
-            <span className="text-slate-700">·</span>
-            <a
-              href={`mailto:${PERSONAL_INFO.email}`}
-              className="text-slate-300 hover:text-teal-400 transition-colors"
-            >
-              Email Maria
-            </a>
-            <span className="text-slate-700">·</span>
-            <button
-              onClick={scrollToTop}
-              className="inline-flex items-center gap-1 text-slate-300 hover:text-teal-400 transition-colors p-1"
-            >
-              <span>Back to top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </button>
+          {/* Contact Details Column */}
+          <div className="md:col-span-4 space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-teal-400">
+              Get in Touch
+            </h4>
+            
+            <div className="space-y-3.5 text-xs sm:text-sm">
+              <a 
+                href={`mailto:${PERSONAL_INFO.email}`} 
+                className="group flex items-start gap-3 text-slate-300 hover:text-white transition-colors"
+              >
+                <div className="w-7 h-7 rounded-lg bg-teal-950/50 border border-teal-800/40 flex items-center justify-center text-teal-400 flex-shrink-0 mt-0.5 group-hover:bg-teal-900/80 transition-colors">
+                  <Mail className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <div className="text-[11px] text-slate-400 uppercase tracking-wider">Email</div>
+                  <div className="font-semibold text-slate-200 group-hover:text-teal-300 break-all">{PERSONAL_INFO.email}</div>
+                </div>
+              </a>
+
+              <a 
+                href={`tel:${PERSONAL_INFO.phone.replace(/[^0-9+]/g, '')}`} 
+                className="group flex items-start gap-3 text-slate-300 hover:text-white transition-colors"
+              >
+                <div className="w-7 h-7 rounded-lg bg-teal-950/50 border border-teal-800/40 flex items-center justify-center text-teal-400 flex-shrink-0 mt-0.5 group-hover:bg-teal-900/80 transition-colors">
+                  <Phone className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <div className="text-[11px] text-slate-400 uppercase tracking-wider">Direct Contact</div>
+                  <div className="font-semibold text-slate-200 group-hover:text-teal-300">{PERSONAL_INFO.phone}</div>
+                </div>
+              </a>
+
+              <div className="flex items-start gap-3 text-slate-300">
+                <div className="w-7 h-7 rounded-lg bg-teal-950/50 border border-teal-800/40 flex items-center justify-center text-teal-400 flex-shrink-0 mt-0.5">
+                  <MapPin className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <div className="text-[11px] text-slate-400 uppercase tracking-wider">Location</div>
+                  <div className="font-semibold text-slate-200">{PERSONAL_INFO.location}</div>
+                  <div className="text-[11px] text-slate-400 mt-0.5 flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-teal-400" />
+                    <span>Serving US PST, MST, CST, EST</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          {/* Quick Links Column */}
+          <div className="md:col-span-3 space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-teal-400">
+              Quick Links
+            </h4>
+            
+            <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm">
+              <button 
+                onClick={() => scrollToSection('#home')} 
+                className="text-left text-slate-300 hover:text-teal-300 transition-colors flex items-center justify-between group py-1"
+              >
+                <span>Home</span>
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </button>
+              <button 
+                onClick={() => scrollToSection('#about')} 
+                className="text-left text-slate-300 hover:text-teal-300 transition-colors flex items-center justify-between group py-1"
+              >
+                <span>About Maria</span>
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </button>
+              <button 
+                onClick={() => scrollToSection('#services')} 
+                className="text-left text-slate-300 hover:text-teal-300 transition-colors flex items-center justify-between group py-1"
+              >
+                <span>Services</span>
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </button>
+              <button 
+                onClick={onOpenContact} 
+                className="text-left text-slate-300 hover:text-teal-300 transition-colors flex items-center justify-between group py-1"
+              >
+                <span>Get In Touch</span>
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </button>
+              <button 
+                onClick={onOpenResume} 
+                className="text-left text-teal-400 hover:text-teal-300 transition-colors flex items-center gap-1.5 font-semibold pt-1"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>View Full CV / Resume</span>
+              </button>
+            </nav>
+          </div>
+
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-teal-500" />
-            <span>HIPAA Compliant & PHI Confidentiality Adherent</span>
-          </div>
-
+        {/* Bottom Sub-Footer Bar */}
+        <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            © {new Date().getFullYear()} Maria Bernadette S. Angeles - Estrada. All rights reserved.
+            © {new Date().getFullYear()} Maria Bernadette S. Angeles - Estrada. All Rights Reserved.
+          </div>
+          <div className="flex items-center gap-2 text-slate-400">
+            <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+            <span>HIPAA Secure • US Healthcare Specialist</span>
           </div>
         </div>
 

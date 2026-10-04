@@ -2,11 +2,11 @@ import React from 'react';
 import { Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 
-interface CanvaProfessionalBackgroundProps {
+interface ProfessionalBackgroundProps {
   onOpenContact?: () => void;
 }
 
-export const CanvaProfessionalBackground: React.FC<CanvaProfessionalBackgroundProps> = ({ onOpenContact }) => {
+export const ProfessionalBackground: React.FC<ProfessionalBackgroundProps> = ({ onOpenContact }) => {
   const partners = [
     {
       id: 1,

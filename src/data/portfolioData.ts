@@ -23,13 +23,6 @@ export interface ToolItem {
   badge?: string;
 }
 
-export interface SpecialtyProcedure {
-  codeType: 'CPT' | 'ICD-10' | 'HCPCS';
-  code: string;
-  description: string;
-  category: 'ENT' | 'Allergy' | 'Biologics' | 'Diagnostics';
-}
-
 export const PERSONAL_INFO = {
   fullName: "Maria Bernadette S. Angeles - Estrada",
   preferredName: "Maria Bernadette Estrada",
@@ -46,65 +39,8 @@ export const PERSONAL_INFO = {
     period: "2014 – 2018",
     description: "Solid scientific foundation in human biological sciences, physiological mechanisms, clinical anatomy, microbiology, and medical terminology."
   },
-  bio: "Experienced Healthcare Virtual Assistant with over four years of experience supporting U.S.-based healthcare practices, particularly in ENT (Ear, Nose, & Throat) and Allergy. Skilled in prior authorization submissions, insurance eligibility and benefits verification, medical coding (ICD-10, CPT, HCPCS), patient communication, and healthcare administrative support. Adept at navigating various U.S. insurance portals, EHR management via AdvancedMD, telehealth proctoring via Doxy, and high-volume VoIP triage via Nextiva. HIPAA-certified, adaptable, and committed to clinical precision and patient care excellence.",
-  stats: [
-    { label: "Years of U.S. Healthcare Experience", value: "4+", detail: "Specialized in ENT & Allergy Practices" },
-    { label: "Prior Auth Submission Accuracy", value: "99%", detail: "Zero-delay turnaround & pre-appointment clearance" },
-    { label: "U.S. Health Portals Mastered", value: "6+", detail: "Availity, Optum, Medpoint, Astrana, Regal, Preferred IPA" },
-    { label: "HIPAA & Patient Privacy", value: "100%", detail: "Certified compliance & secure data handling" },
-  ]
+  bio: "Experienced Healthcare Virtual Assistant with over four years of experience supporting U.S.-based healthcare practices, particularly in ENT (Ear, Nose, & Throat) and Allergy. Skilled in prior authorization submissions, insurance eligibility and benefits verification, medical coding (ICD-10, CPT, HCPCS), patient communication, and healthcare administrative support. Adept at navigating various U.S. insurance portals, EHR management via AdvancedMD, telehealth proctoring via Doxy, and high-volume VoIP triage via Nextiva. HIPAA-certified, adaptable, and committed to clinical precision and patient care excellence."
 };
-
-export const CORE_COMPETENCIES = [
-  {
-    id: "prior-auth",
-    title: "Prior Authorization Specialist",
-    icon: "FileCheck",
-    summary: "End-to-end management of treatment authorization requests (TAR/SAR), specialty medications, and in-office surgical procedures.",
-    description: "Expert at compiling clinical chart notes, diagnostic imaging, and physician orders to submit clean prior authorizations through payer portals before patient visits, eliminating denied claims and appointment delays.",
-    highlights: ["Pre-service clearance", "Urgent & expedited authorizations", "Denial review & peer-to-peer appeal prep", "Specialty biologics & ENT surgeries"]
-  },
-  {
-    id: "insurance-verification",
-    title: "Insurance Eligibility & Benefits Verification",
-    icon: "ShieldCheck",
-    summary: "Real-time verification of active coverage, deductibles, copayments, coinsurance, and out-of-pocket maximums.",
-    description: "Navigates 270/271 electronic transactions and direct payer inquiries for HMO, PPO, Medicare, Medi-Cal, and commercial networks to ensure accurate patient financial counseling and clean billing.",
-    highlights: ["HMO/IPA primary care capitation routing", "Deductible & out-of-pocket tracking", "Secondary/tertiary payer coordination", "Pre-appointment financial clearance"]
-  },
-  {
-    id: "medical-coding",
-    title: "Medical Coding (ICD-10, CPT, HCPCS)",
-    icon: "Binary",
-    summary: "Precision coding for complex ENT procedures, allergy testing, immunotherapies, and specialty injectables.",
-    description: "Thorough understanding of medical necessity guidelines, bundling rules, modifiers (-25, -59, -50), and Local Coverage Determinations (LCDs) to protect practice revenue and compliance.",
-    highlights: ["Diagnostic ICD-10-CM coding", "Procedural CPT coding for ENT & Allergy", "HCPCS Level II for biologics & antigens", "Medical necessity documentation audit"]
-  },
-  {
-    id: "ehr-management",
-    title: "EHR Mastery (AdvancedMD) & Records Dispatch",
-    icon: "Database",
-    summary: "Comprehensive chart management, appointment scheduling, charge capture, and secure HIPAA-compliant e-faxing.",
-    description: "Streamlines practice operations inside AdvancedMD and integrated practice management suites: updating patient demographics, attaching lab results, tagging diagnostic reports, and coordinating records dispatch.",
-    highlights: ["AdvancedMD EHR & PM suite", "Secure cloud e-faxing", "Document indexing & medical chart audits", "Patient portal message routing"]
-  },
-  {
-    id: "telehealth-proctoring",
-    title: "Telehealth Proctoring & Patient Communication",
-    icon: "PhoneCall",
-    summary: "Patient intake, appointment scheduling, COVID-19 proctoring, and empathetic inbound/outbound communication.",
-    description: "Handles high-volume inbound inquiries and outbound insurance/patient follow-ups via Nextiva and proctors live virtual telehealth sessions on Doxy.me, ensuring test authenticity and patient comfort.",
-    highlights: ["Nextiva VoIP phone handling", "Doxy.me telehealth session proctoring", "Test result certification issuance", "Patient appointment reminders & triage"]
-  },
-  {
-    id: "training-mentorship",
-    title: "VA Training & Clinical Workflow SOPs",
-    icon: "Users",
-    summary: "Facilitation of training programs for newly hired healthcare virtual assistants specializing in allergy and ENT.",
-    description: "Develops step-by-step Standard Operating Procedures (SOPs), departmental cheat sheets, and quality assurance workflows to ensure high reliability and seamless team integration across time zones.",
-    highlights: ["Allergy department workflow onboarding", "SOP manual development", "Quality assurance & chart reviews", "Cross-departmental reliability"]
-  }
-];
 
 export const TOOLS_COMMUNICATION: ToolItem[] = [
   {
@@ -304,8 +240,8 @@ export const WORK_EXPERIENCE: WorkExperienceItem[] = [
     description: "Serving as an indispensable clinical administrative backbone for a prominent multi-provider Los Angeles ENT and Allergy surgical center. Managing high-volume prior authorizations, clinical coding, EHR operations, and patient communications.",
     responsibilities: [
       "Proctored diverse COVID-19 testing kit procedures with corresponding brand protocols via Doxy.me during and post-pandemic, ensuring clinical testing validity and publishing official patient test certificates.",
-      "Applied deep procedural expertise in CPT codes, HCPCS Level II, and ICD-10-CM diagnostic coding to assemble comprehensive prior authorization packets for ENT and Allergy treatments.",
-      "Facilitated and led comprehensive training programs for newly hired virtual assistants specializing in the allergy department, establishing standard operating procedures (SOPs) and fostering inter-departmental reliability.",
+      "Applied procedural expertise in CPT codes, HCPCS Level II, and ICD-10-CM diagnostic coding to assemble comprehensive prior authorization packets for ENT and Allergy treatments.",
+      "Facilitated training programs for newly hired virtual assistants specializing in the allergy department, establishing standard operating procedures (SOPs) and fostering inter-departmental reliability.",
       "Submitted prior authorizations to corresponding U.S.-based portals in a timely manner; managed pending authorizations diligently to ensure approval clearance prior to patient appointments.",
       "Executed outbound calls to health insurance payers for real-time benefit verifications, claim follow-ups, and urgent authorization escalations; managed inbound calls for patient scheduling, authorization inquiries, and triage.",
       "Mastered electronic health records (EHR) utilization primarily in AdvancedMD, telehealth via Doxy.me, VoIP telephony via Nextiva, and secure electronic faxing of clinical records to U.S. hospital facilities."
@@ -323,9 +259,9 @@ export const WORK_EXPERIENCE: WorkExperienceItem[] = [
       "COVID-19 Proctoring"
     ],
     highlights: [
-      "Trained and onboarded 10+ new Virtual Assistants in allergy clinical workflows",
-      "Maintained a 99%+ prior authorization submission accuracy rate",
-      "Prevented appointment cancellations by clearing authorizations 48-72 hours in advance"
+      "Trained and onboarded new Virtual Assistants in allergy clinical workflows",
+      "Maintained a high prior authorization submission accuracy rate",
+      "Prevented appointment cancellations by clearing authorizations in advance"
     ]
   },
   {
@@ -376,69 +312,5 @@ export const WORK_EXPERIENCE: WorkExperienceItem[] = [
     highlights: [
       "Expanded institutional adoption of critical hospital vial medications"
     ]
-  }
-];
-
-export const CODING_SPECIALTIES: SpecialtyProcedure[] = [
-  { codeType: "CPT", code: "31231", description: "Nasal endoscopy, diagnostic, unilateral or bilateral", category: "ENT" },
-  { codeType: "CPT", code: "31237", description: "Nasal/sinus endoscopy, surgical; with biopsy, polypectomy or debridement", category: "ENT" },
-  { codeType: "CPT", code: "30140", description: "Submucous resection inferior turbinate, partial or complete", category: "ENT" },
-  { codeType: "CPT", code: "31256", description: "Nasal/sinus endoscopy, surgical, with maxillary antrostomy", category: "ENT" },
-  { codeType: "CPT", code: "95004", description: "Percutaneous tests (scratch, puncture, prick) with allergenic extracts", category: "Allergy" },
-  { codeType: "CPT", code: "95165", description: "Supervision of preparation and provision of antigens for allergen immunotherapy", category: "Allergy" },
-  { codeType: "CPT", code: "92557", description: "Comprehensive audiometry threshold evaluation and speech recognition", category: "Diagnostics" },
-  { codeType: "HCPCS", code: "J0517", description: "Injection, benralizumab, 1 mg (Fasenra for severe eosinophilic asthma)", category: "Biologics" },
-  { codeType: "HCPCS", code: "J2357", description: "Injection, omalizumab, 5 mg (Xolair for chronic rhinosinusitis with nasal polyps)", category: "Biologics" },
-  { codeType: "ICD-10", code: "J32.9", description: "Chronic sinusitis, unspecified", category: "ENT" },
-  { codeType: "ICD-10", code: "J30.1", description: "Allergic rhinitis due to pollen", category: "Allergy" },
-  { codeType: "ICD-10", code: "J33.0", description: "Polyp of nasal cavity", category: "ENT" },
-  { codeType: "ICD-10", code: "J34.2", description: "Deviated nasal septum", category: "ENT" },
-  { codeType: "ICD-10", code: "G47.33", description: "Obstructive sleep apnea (adult) (pediatric)", category: "ENT" }
-];
-
-export const PRIOR_AUTH_STEPS = [
-  {
-    step: "01",
-    title: "Patient Order & Chart Review",
-    description: "Receive doctor's treatment order in AdvancedMD. Extract clinical documentation, diagnostic imaging (CT sinus/audiograms), previous conservative therapy trials, and diagnosis codes (ICD-10)."
-  },
-  {
-    step: "02",
-    title: "Insurance Verification & Portal Routing",
-    description: "Check patient's active health plan via Availity or direct payer portal. Determine whether prior authorization, pre-determination, or IPA TAR is required based on medical policy."
-  },
-  {
-    step: "03",
-    title: "Submission via Payer Portal",
-    description: "Enter electronic authorization in Optum, Medpoint, Preferred IPA, Regal/Lakeside, Astrana, or Blue Shield portal. Attach relevant clinical notes, CPT codes, and HCPCS modifier codes."
-  },
-  {
-    step: "04",
-    title: "Turnaround Tracking & Follow-Up",
-    description: "Monitor reference numbers daily. Conduct outbound calls to payer authorization departments for expedited reviews or missing clinical criteria."
-  },
-  {
-    step: "05",
-    title: "Approval Indexing & Patient Clearance",
-    description: "Download authorization approval letter, attach to patient chart in AdvancedMD, record approved auth number and validity dates, and clear patient for clinic appointment/surgery."
-  }
-];
-
-export const PRACTICE_BENEFITS = [
-  {
-    title: "Reduce Claim Denials by up to 90%",
-    description: "Meticulous verification of insurance coverage and pre-authorization before procedures prevents costly retroactive denials and peer-to-peer delays."
-  },
-  {
-    title: "Free Up In-Clinic Staff Time",
-    description: "Let your on-site medical assistants focus 100% on hands-on patient care while Maria handles portal submissions, phone trees, and fax dispatch remotely."
-  },
-  {
-    title: "Specialized ENT & Allergy Fluency",
-    description: "No need to train from scratch—Maria already knows sinus anatomy, CPT codes, skin testing units, antigen preparation (95165), and biologic specialty medications."
-  },
-  {
-    title: "Immediate AdvancedMD & Portal Readyness",
-    description: "Familiar with daily workflows in AdvancedMD, Doxy.me, Nextiva, Availity, Optum, Medpoint, Astrana Health, and Regal/Lakeside Medical Group."
   }
 ];

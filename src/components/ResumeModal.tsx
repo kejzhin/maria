@@ -172,6 +172,20 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             </div>
           </div>
 
+          {/* Certifications */}
+          <div className="space-y-1.5">
+            <h2 className="text-xs font-black uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1">
+              Certifications & Accreditations
+            </h2>
+            <div className="flex justify-between items-baseline pt-1">
+              <span className="text-xs font-bold text-slate-900">HIPAA Awareness for Healthcare Providers</span>
+              <span className="text-xs font-mono text-slate-500">April 2022</span>
+            </div>
+            <div className="text-xs text-teal-800 font-medium">
+              HIPAATraining.com (Hello Rache) • 1.5 Credit Hours (Texas HB 300 & California CMIA)
+            </div>
+          </div>
+
           {/* Education */}
           <div className="space-y-1">
             <h2 className="text-xs font-black uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1">
