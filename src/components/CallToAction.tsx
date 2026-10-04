@@ -8,20 +8,18 @@ interface CallToActionProps {
 export const CallToAction: React.FC<CallToActionProps> = ({ onOpenContact }) => {
   return (
     <section className="py-24 sm:py-28 bg-slate-950 text-white relative overflow-hidden flex items-center justify-center min-h-[460px]">
-      {/* Moving Video Background with camera angle: Desk, coffee cup, woman's hands typing on laptop */}
+      {/* Moving Video Background: Purely a woman typing on a laptop keyboard */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        poster="/desk-typing-coffee-poster.jpg"
-        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-90 brightness-90 contrast-105"
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-90 brightness-95 contrast-105"
       >
-        <source src="/typing-desk-coffee.mp4" type="video/mp4" />
-        <source src="/woman-typing-working.mp4" type="video/mp4" />
+        <source src="/pure-woman-typing.mp4" type="video/mp4" />
       </video>
 
-      {/* Minimal transparent vignette to ensure high video visibility while keeping text crisp */}
+      {/* Light balanced gradient overlays for video visibility and text contrast */}
       <div className="absolute inset-0 bg-slate-950/30 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-slate-950/65 pointer-events-none" />
       
