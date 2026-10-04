@@ -101,13 +101,9 @@ export const CanvaProfessionalBackground: React.FC<CanvaProfessionalBackgroundPr
             <svg className="w-10 sm:w-20 md:w-32 h-6 sm:h-8 text-[#0e6ba8]" viewBox="0 0 100 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M0 12h25l5-8 8 16 8-16 6 8h48" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <motion.div 
-              animate={{ scale: [1, 1.25, 1] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#0e6ba8] text-white flex items-center justify-center shadow"
-            >
+            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#0e6ba8] text-white flex items-center justify-center shadow">
               <Heart className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-white" />
-            </motion.div>
+            </div>
             {/* Right pulse line */}
             <svg className="w-10 sm:w-20 md:w-32 h-6 sm:h-8 text-[#0e6ba8]" viewBox="0 0 100 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M0 12h48l6 8 8-16 8 16 5-8h25" strokeLinecap="round" strokeLinejoin="round"/>
@@ -118,7 +114,7 @@ export const CanvaProfessionalBackground: React.FC<CanvaProfessionalBackgroundPr
             Professional Background
           </h2>
           <p className="text-sm sm:text-base font-semibold text-slate-600">
-            Over a Decade of Supporting Healthcare Providers
+            Over 4 Years of Supporting Healthcare Providers
           </p>
         </motion.div>
 

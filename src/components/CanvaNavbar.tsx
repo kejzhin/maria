@@ -27,9 +27,9 @@ export const CanvaNavbar: React.FC<CanvaNavbarProps> = ({ onOpenContact }) => {
     <header id="home" className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-16 flex items-center justify-between">
         
-        {/* Logo Mark (Large logo that vertically fits nicely) */}
-        <a href="#home" className="flex items-center group relative h-16 w-16 sm:w-20">
-          <div className="absolute top-1/2 -translate-y-1/2 left-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center group-hover:scale-105 transition-transform">
+        {/* Logo Mark */}
+        <a href="#home" className="flex items-center relative h-16 w-16 sm:w-20">
+          <div className="absolute top-1/2 -translate-y-1/2 left-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
             <img
               src="/heartbeat.png"
               alt="Logo"

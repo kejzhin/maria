@@ -107,7 +107,7 @@ export const CanvaAbout: React.FC<CanvaAboutProps> = ({ onOpenResume }) => {
               </h2>
 
               <p className="text-sm sm:text-base md:text-lg text-slate-800 leading-relaxed font-normal">
-                A Medical Receptionist and Biller turned Virtual Assistant. For more than a decade, I've supported healthcare providers with billing, claims processing, scheduling, and administrative management.
+                A dedicated Healthcare Virtual Assistant and Prior Authorization Specialist with over 4 years of experience supporting U.S. healthcare practices, particularly in ENT (Ear, Nose, & Throat) and Allergy.
               </p>
 
               <p className="text-sm sm:text-base md:text-lg text-slate-800 leading-relaxed font-normal">
