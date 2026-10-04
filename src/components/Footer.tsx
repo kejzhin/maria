@@ -1,9 +1,9 @@
 import React from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { Mail, Phone, MapPin, Linkedin, ShieldCheck, ArrowUpRight, Clock, FileText } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, ShieldCheck, ArrowUpRight, Clock } from 'lucide-react';
 
 interface FooterProps {
-  onOpenResume: () => void;
+  onOpenResume?: () => void;
   onOpenContact: () => void;
 }
 
@@ -151,13 +151,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenResume, onOpenContact }) =
               >
                 <span>Get In Touch</span>
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </button>
-              <button 
-                onClick={onOpenResume} 
-                className="text-left text-teal-400 hover:text-teal-300 transition-colors flex items-center gap-1.5 font-semibold pt-1"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>View Full CV / Resume</span>
               </button>
             </nav>
           </div>
