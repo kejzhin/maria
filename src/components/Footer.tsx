@@ -1,6 +1,6 @@
 import React from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { Mail, Phone, MapPin, Linkedin, ShieldCheck, ArrowUpRight, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, ArrowUpRight, Clock } from 'lucide-react';
 
 interface FooterProps {
   onOpenResume?: () => void;
@@ -14,14 +14,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenResume, onOpenContact }) =
   };
 
   return (
-    <footer id="contact" className="bg-[#0b1728] text-slate-300 border-t border-slate-800/80 pt-16 pb-12 selection:bg-teal-500 selection:text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <footer id="contact" className="bg-[#0b1728] text-slate-300 border-t border-slate-800/80 pt-12 pb-10 selection:bg-teal-500 selection:text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* Brand & Purpose Column */}
-          <div className="md:col-span-5 space-y-5">
+          <div className="md:col-span-5 space-y-4">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-teal-400">
                 Healthcare Practice Partner
@@ -59,12 +59,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenResume, onOpenContact }) =
               >
                 <Phone className="w-4 h-4" />
               </a>
-            </div>
-
-            {/* Compliance Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-teal-950/60 border border-teal-800/50 text-teal-300 text-xs font-semibold">
-              <ShieldCheck className="w-4 h-4 text-teal-400" />
-              <span>HIPAA Certified • Confidential & Secure</span>
             </div>
           </div>
 
@@ -158,13 +152,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenResume, onOpenContact }) =
         </div>
 
         {/* Bottom Sub-Footer Bar */}
-        <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
             © {new Date().getFullYear()} Maria Bernadette S. Angeles - Estrada. All Rights Reserved.
-          </div>
-          <div className="flex items-center gap-2 text-slate-400">
-            <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-            <span>HIPAA Secure • US Healthcare Specialist</span>
           </div>
         </div>
 

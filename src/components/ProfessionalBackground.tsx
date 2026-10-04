@@ -7,93 +7,63 @@ interface ProfessionalBackgroundProps {
 }
 
 export const ProfessionalBackground: React.FC<ProfessionalBackgroundProps> = ({ onOpenContact }) => {
-  const partners = [
+  const organizations = [
     {
-      id: 1,
-      content: (
-        <div className="text-center">
-          <div className="text-purple-700 font-extrabold text-lg tracking-wider">VISUAL</div>
-          <div className="text-purple-900 font-bold text-xs tracking-widest uppercase">Processing</div>
-          <div className="text-[9px] text-slate-500 tracking-wider mt-0.5">OPTOMETRY</div>
-        </div>
-      )
+      id: "laent",
+      name: "Los Angeles Center for Ear, Nose, Throat and Allergy",
+      shortName: "LA ENT & Allergy",
+      role: "Healthcare Virtual Assistant",
+      period: "2022 – Present",
+      location: "Remote (Supporting U.S. Practice)",
+      description: "Prior authorization, insurance verification, AdvancedMD EHR management, and clinical back-end coordination.",
+      logoUrl: "/organizations/laent_seal.svg",
+      tagColor: "bg-blue-50 text-blue-800 border-blue-200"
     },
     {
-      id: 2,
-      content: (
-        <div className="text-center">
-          <div className="text-[#1a365d] font-black text-xl italic tracking-tight">Gunz</div>
-          <div className="text-cyan-600 font-bold text-sm tracking-widest uppercase">dental</div>
-          <div className="text-[8px] text-slate-400 mt-1">THE PEOPLE BEHIND THE PRODUCTS YOU TRUST</div>
-        </div>
-      )
+      id: "tts",
+      name: "Total Testing Solutions",
+      shortName: "TTS Medical",
+      role: "Virtual Telehealth Proctor",
+      period: "Clinical Telehealth",
+      location: "Remote",
+      description: "Proctored COVID-19 testing protocols, issued test certificates, and managed patient queues via Doxy.me.",
+      logoUrl: "/organizations/tts_card.svg",
+      tagColor: "bg-teal-50 text-teal-800 border-teal-200"
     },
     {
-      id: 3,
-      content: (
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full border-2 border-cyan-600 flex items-center justify-center text-cyan-600 font-bold">Q</div>
-          <div className="text-slate-900 font-bold text-lg tracking-tight">Quick<span className="text-cyan-600">MD</span></div>
-        </div>
-      )
+      id: "zydus",
+      name: "Zydus Healthcare Phils, Inc.",
+      shortName: "Zydus Lifesciences",
+      role: "Licensed Professional Medical Representative",
+      period: "2019 – 2022",
+      location: "BGC Taguig, Philippines",
+      description: "Promoted cardio-metabolic pharmaceuticals to medical specialists and secured tertiary hospital formulary adoption.",
+      logoUrl: "/organizations/zydus.png",
+      tagColor: "bg-purple-50 text-purple-800 border-purple-200"
     },
     {
-      id: 4,
-      content: (
-        <div className="text-center">
-          <div className="text-teal-700 font-serif italic font-bold text-sm">A Step Above</div>
-          <div className="text-[10px] text-slate-600 font-medium">Health Management</div>
-          <div className="text-[7px] text-slate-400 mt-0.5">Pediatric Billing and Consulting</div>
-        </div>
-      )
-    },
-    {
-      id: 5,
-      content: (
-        <div className="text-center">
-          <div className="text-green-700 font-bold text-sm">Siyan Clinical Corporation</div>
-        </div>
-      )
-    },
-    {
-      id: 6,
-      content: (
-        <div className="text-center">
-          <div className="text-emerald-800 font-serif font-bold text-sm">FLOURISH MINDSET</div>
-          <div className="text-[9px] text-slate-600 uppercase tracking-widest mt-1">Marriage and Family Therapy</div>
-        </div>
-      )
-    },
-    {
-      id: 7,
-      content: (
-        <div className="text-center">
-          <div className="text-[#1a365d] font-black text-sm tracking-wider">MEDENS</div>
-          <div className="text-amber-600 font-bold text-sm tracking-widest">HEALTH</div>
-        </div>
-      )
-    },
-    {
-      id: 8,
-      content: (
-        <div className="text-center">
-          <div className="text-teal-800 font-serif text-xs font-bold">LA Peace of Mind</div>
-          <div className="text-[9px] text-slate-600 mt-0.5">Counseling Services, Inc.</div>
-        </div>
-      )
+      id: "rmerk",
+      name: "R-Merk Drug, Inc.",
+      shortName: "R-Merk Drug",
+      role: "Medical Clinician",
+      period: "2018 – 2019",
+      location: "Quezon City, Philippines",
+      description: "Coordinated institutional partnerships and formulary inclusion for vital injectable and specialty medicines.",
+      logoUrl: "/organizations/rmerk.svg",
+      tagColor: "bg-emerald-50 text-emerald-800 border-emerald-200"
     }
   ];
 
   return (
     <section className="py-16 sm:py-20 bg-slate-50 border-b border-slate-200 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10 sm:space-y-12">
         
-        {/* Header with Heartbeat lines */}
+        {/* Header with Pulse ECG Lines */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-3 flex flex-col items-center"
         >
           <div className="flex items-center gap-2 sm:gap-3 text-[#0e6ba8]">
@@ -113,35 +83,65 @@ export const ProfessionalBackground: React.FC<ProfessionalBackgroundProps> = ({ 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#1a365d] tracking-tight">
             Professional Background
           </h2>
-          <p className="text-sm sm:text-base font-semibold text-slate-600">
-            Over 4 Years of Supporting Healthcare Providers
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-600">
+            Over 4 Years of Clinical & Healthcare Experience
           </p>
         </motion.div>
 
-        {/* Clinics / Partner Logos Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto items-center">
-          {partners.map((partner, idx) => (
+        {/* 4 Real Organizations Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch">
+          {organizations.map((org, idx) => (
             <motion.div
-              key={partner.id}
+              key={org.id}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ scale: 1.04, y: -4 }}
-              className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center justify-center h-28 sm:h-32 hover:shadow-md transition-all cursor-default"
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -4 }}
+              className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between text-left group"
             >
-              {partner.content}
+              <div>
+                {/* Logo Area */}
+                <div className="h-28 sm:h-32 w-full bg-slate-50/70 rounded-xl border border-slate-100 flex items-center justify-center p-3 mb-4 group-hover:bg-slate-50 transition-colors">
+                  <img
+                    src={org.logoUrl}
+                    alt={`${org.name} Logo`}
+                    className="max-h-full max-w-full object-contain filter drop-shadow-2xs group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                    }}
+                  />
+                </div>
+
+                {/* Organization Title */}
+                <h3 className="text-sm font-bold text-slate-900 leading-snug group-hover:text-[#0e6ba8] transition-colors line-clamp-2 min-h-[2.5rem]">
+                  {org.name}
+                </h3>
+
+                {/* Role Pill */}
+                <div className="mt-2.5 inline-block">
+                  <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border ${org.tagColor} block leading-tight`}>
+                    {org.role}
+                  </span>
+                </div>
+
+                {/* Brief Summary */}
+                <p className="text-xs text-slate-600 leading-relaxed mt-3">
+                  {org.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom Button */}
+        {/* Bottom CTA Button */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="pt-4 sm:pt-6"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="pt-2 sm:pt-4"
         >
           <motion.button
             whileHover={{ scale: 1.04, y: -2 }}

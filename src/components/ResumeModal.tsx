@@ -80,7 +80,14 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <span>|</span>
               <div className="flex items-center gap-1">
                 <Linkedin className="w-3 h-3 text-slate-400" />
-                <span>linkedin.com/in/maria-bernadette-estrada</span>
+                <a 
+                  href={PERSONAL_INFO.linkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-teal-700 transition-colors"
+                >
+                  linkedin.com/in/mariabernadetteae
+                </a>
               </div>
             </div>
           </div>

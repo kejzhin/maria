@@ -33,7 +33,7 @@ export const PERSONAL_INFO = {
   phone: "(+63) 926 041 5994",
   location: "Pasig City, Philippines",
   timezonesSupported: "US Pacific (PST), Mountain (MST), Central (CST), Eastern (EST)",
-  linkedIn: "https://linkedin.com/in/maria-bernadette-estrada",
+  linkedIn: "https://www.linkedin.com/in/mariabernadetteae",
   education: {
     institution: "Bulacan State University",
     degree: "Bachelor of Science in Biology (B.S. Biology)",
