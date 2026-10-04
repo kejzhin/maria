@@ -19,6 +19,7 @@ export interface ToolItem {
   description: string;
   features: string[];
   logoType?: 'svg' | 'icon' | 'image';
+  logoUrl?: string;
   accentColor: string;
   badge?: string;
 }
@@ -50,6 +51,7 @@ export const TOOLS_COMMUNICATION: ToolItem[] = [
     subtitle: "HIPAA-Compliant Telehealth",
     description: "Utilized for remote patient consultations, virtual patient intake, and live proctoring of COVID-19 diagnostic testing procedures with instant patient test certificates.",
     features: ["Virtual patient check-in", "Live proctored testing", "Encrypted video triage", "Waiting room queue triage"],
+    logoUrl: "/logos/doxy.png",
     accentColor: "#0D9488"
   },
   {
@@ -59,6 +61,7 @@ export const TOOLS_COMMUNICATION: ToolItem[] = [
     subtitle: "Cloud VoIP & Call Routing",
     description: "Primary telecom platform for handling high-volume inbound patient calls, scheduling, insurance follow-ups, and outbound coordination with U.S. payer representatives.",
     features: ["Inbound/Outbound call queues", "Call logging & voicemails", "HIPAA-compliant cloud telephony", "Warm transfers & multi-line routing"],
+    logoUrl: "/logos/nextiva.png",
     accentColor: "#2563EB"
   },
   {
@@ -68,6 +71,7 @@ export const TOOLS_COMMUNICATION: ToolItem[] = [
     subtitle: "Clinical Sync & Provider Briefings",
     description: "Conducting morning huddles, weekly provider meetings, and secure clinical coordination with physicians and healthcare administrators.",
     features: ["Real-time team sync", "Screen sharing for chart reviews", "Calendar integration", "Multi-disciplinary meetings"],
+    logoUrl: "/logos/google-meet.png",
     accentColor: "#059669"
   },
   {
@@ -77,6 +81,7 @@ export const TOOLS_COMMUNICATION: ToolItem[] = [
     subtitle: "Practice Collaboration Hub",
     description: "Inter-departmental messaging, urgent case escalations, task delegation, and secure clinical file sharing within practice networks.",
     features: ["Departmental channels", "Urgent doctor escalations", "Protected file repository", "Real-time task tracking"],
+    logoUrl: "/logos/ms-teams.png",
     accentColor: "#4F46E5"
   },
   {
@@ -86,6 +91,7 @@ export const TOOLS_COMMUNICATION: ToolItem[] = [
     subtitle: "Video Conferencing & Webinars",
     description: "Used for comprehensive VA training programs, patient educational webinars, and multi-facility clinical conferences.",
     features: ["Training session recordings", "Breakout practice rooms", "Interactive workflow training", "Provider conferences"],
+    logoUrl: "/logos/zoom.png",
     accentColor: "#0284C7"
   },
   {
@@ -95,6 +101,7 @@ export const TOOLS_COMMUNICATION: ToolItem[] = [
     subtitle: "Fast-Paced VA Squad Coordination",
     description: "Rapid internal communication, shift handovers, instant peer support, and team announcement distribution for virtual teams.",
     features: ["Instant shift handovers", "Resource repository", "Voice channels for quick syncs", "Bot notifications"],
+    logoUrl: "/logos/discord.png",
     accentColor: "#5865F2"
   }
 ];
@@ -114,6 +121,7 @@ export const TOOLS_EHR: ToolItem[] = [
       "Electronic Faxing & Medical Record Release Auditing",
       "Billing Encounter Review & Charge Slips"
     ],
+    logoUrl: "/logos/advancedmd.png",
     accentColor: "#0284C7",
     badge: "Core Primary EHR"
   }
@@ -127,6 +135,7 @@ export const TOOLS_PORTALS: ToolItem[] = [
     subtitle: "California IPA & MSO Portal",
     description: "Navigating Medpoint portal for Managed Care Independent Practice Associations (IPAs): submitting specialist treatment authorizations, checking member capitation status, and tracking claim turnaround.",
     features: ["IPA specialist referral submissions", "TAR (Treatment Authorization Request) tracking", "Capitation eligibility verification", "Claim appeal submissions"],
+    logoUrl: "/logos/medpoint.png",
     accentColor: "#0EA5E9"
   },
   {
@@ -136,6 +145,7 @@ export const TOOLS_PORTALS: ToolItem[] = [
     subtitle: "Preferred IPA of California Portal",
     description: "Coordinating specialty authorizations, diagnostic referrals, and surgical pre-clearances for HMO members assigned to Preferred IPA networks across Southern California.",
     features: ["Specialist authorization requests", "Urgent pre-service authorizations", "Clinical chart note attachments", "Approval letter generation"],
+    logoUrl: "/logos/preferred-ipa.png",
     accentColor: "#2563EB"
   },
   {
@@ -145,6 +155,7 @@ export const TOOLS_PORTALS: ToolItem[] = [
     subtitle: "Optum / OptumPay Ecosystem",
     description: "Expert utilization of Optum's provider portal for prior authorization submissions, electronic remittance advice (ERA), and benefits verification across UnitedHealthcare and affiliate plans.",
     features: ["Prior authorization submissions", "Eligibility & co-insurance lookup", "OptumPay remittance & claim status", "Appeals & grievance submissions"],
+    logoUrl: "/logos/optum.png",
     accentColor: "#EA580C"
   },
   {
@@ -154,6 +165,7 @@ export const TOOLS_PORTALS: ToolItem[] = [
     subtitle: "Formerly ApolloMed / Network Medical Management",
     description: "Managing authorizations, referral routing, and patient care management rosters across Astrana Health's integrated physician network.",
     features: ["Care coordination referral tracking", "Direct-entry prior authorizations", "Network specialist directory search", "Utilization management compliance"],
+    logoUrl: "/logos/astrana-health.png",
     accentColor: "#7C3AED"
   },
   {
@@ -163,6 +175,7 @@ export const TOOLS_PORTALS: ToolItem[] = [
     subtitle: "Regal Medical Group & Lakeside Community Healthcare",
     description: "Comprehensive portal workflows for Regal and Lakeside affiliated IPA patients: securing secondary specialist approvals, high-cost medication authorizations, and diagnostic imaging requests.",
     features: ["Pre-service authorization entries", "Rapid turnaround status updates", "Provider directory alignment", "Patient referral coordination"],
+    logoUrl: "/logos/regal-lakeside.png",
     accentColor: "#059669"
   },
   {
@@ -172,6 +185,7 @@ export const TOOLS_PORTALS: ToolItem[] = [
     subtitle: "National Payer Clearinghouse & Portal",
     description: "High-volume daily usage for real-time 270/271 Eligibility & Benefits inquiries, 278 Prior Authorization submissions, and 276/277 Claim Status inquiries across hundreds of US health plans.",
     features: ["Real-time 270/271 eligibility verification", "278 Prior authorization submission & tracking", "276/277 Claim status research", "Payer digital attachments & clinical notes"],
+    logoUrl: "/logos/availity.png",
     accentColor: "#1E3A8A"
   }
 ];
@@ -190,6 +204,7 @@ export const TOOLS_INSURANCE: ToolItem[] = [
       "Prior auth for biologics (Xolair, Dupixent, Fasenra)",
       "Appeals & reconsideration documentation"
     ],
+    logoUrl: "/logos/blue-shield.png",
     accentColor: "#006699",
     badge: "Official Network Expertise"
   },
@@ -206,6 +221,7 @@ export const TOOLS_INSURANCE: ToolItem[] = [
       "Coordination of Benefits & MSP questionnaires",
       "Billing compliance & modifier usage"
     ],
+    logoUrl: "/logos/medicare.png",
     accentColor: "#B91C1C",
     badge: "CMS Guidelines Expert"
   },
@@ -216,6 +232,7 @@ export const TOOLS_INSURANCE: ToolItem[] = [
     subtitle: "California State Healthcare Program",
     description: "Familiarity with straight Medi-Cal and Medi-Cal Managed Care health plans (L.A. Care, Health Net, IEHP, CalOptima) including Treatment Authorization Requests (TAR).",
     features: ["TAR electronic submission", "Managed Medi-Cal plan verification", "Prescription & procedure limitations", "Share of Cost (SOC) tracking"],
+    logoUrl: "/logos/medi-cal.png",
     accentColor: "#0284C7"
   },
   {
@@ -225,6 +242,7 @@ export const TOOLS_INSURANCE: ToolItem[] = [
     subtitle: "Aetna, Cigna, UnitedHealthcare, Humana",
     description: "Managing pre-determinations, prior authorizations, and complex benefits across leading national commercial health insurers.",
     features: ["In-network & out-of-network benefits", "Deductible accumulation research", "Pre-certification of surgical suites", "Tiered specialty drug approvals"],
+    logoUrl: "/logos/commercial-payers.png",
     accentColor: "#047857"
   }
 ];
