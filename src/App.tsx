@@ -9,19 +9,19 @@ import { Services } from './components/Services';
 import { CallToAction } from './components/CallToAction';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
+import { ContactModal } from './components/ContactModal';
 
 export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   const handleOpenResume = () => setResumeOpen(true);
   const handleCloseResume = () => setResumeOpen(false);
 
   const handleOpenContact = () => {
-    const contactElem = document.getElementById('contact');
-    if (contactElem) {
-      contactElem.scrollIntoView({ behavior: 'smooth' });
-    }
+    setContactOpen(true);
   };
+  const handleCloseContact = () => setContactOpen(false);
 
   const handleOpenServices = () => {
     const servicesElem = document.getElementById('services');
@@ -79,6 +79,12 @@ export default function App() {
       <ResumeModal 
         isOpen={resumeOpen}
         onClose={handleCloseResume}
+      />
+
+      {/* Pop-up Booking & Contact Form Modal */}
+      <ContactModal
+        isOpen={contactOpen}
+        onClose={handleCloseContact}
       />
     </div>
   );

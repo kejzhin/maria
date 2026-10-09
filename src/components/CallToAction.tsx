@@ -46,16 +46,7 @@ export const CallToAction: React.FC<CallToActionProps> = ({ onOpenContact }) => 
             onClick={onOpenContact}
             className="px-8 py-4 text-xs font-bold uppercase tracking-wider text-slate-950 bg-teal-400 hover:bg-teal-300 rounded-full shadow-lg transition-all"
           >
-            Book a Call
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={onOpenContact}
-            className="px-8 py-4 text-xs font-bold uppercase tracking-wider text-white bg-slate-900/60 hover:bg-white/20 border-2 border-white rounded-full backdrop-blur-xs transition-all shadow-md"
-          >
-            Send a Message
+            Send Email
           </motion.button>
         </div>
 
